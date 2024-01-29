@@ -1,0 +1,3 @@
+displayName = The Hood Irony Mod
+author = BigBalls69420
+version = 1.3.2

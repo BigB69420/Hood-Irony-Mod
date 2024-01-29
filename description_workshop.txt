@@ -1,0 +1,27 @@
+1.4.4 Port of this garbage
+
+This mod is the psychotic work of a sadistic man, this mod implements multiple dead memes and inside jokes that i am sure will make even the strongest cringe. Included in the long line of hot garbage is Blud, the amalgamation of 21st century humour made into one astoundingly useless town npc.
+
+Aside from Blud being the remnants of a dead meme, he sells boss bags that might make your hellish experience easier
+
+For this irrelevant monstrosity to infest your tenants home, you only need a copper shortsword after that Blud will find you
+
+Any hate is openly accepted and i still regret making this mod to this day
+
+Don't have fun, or do, I don't really care
+
+[h1] Changelog [/h1]
+Version 1.1
+[list]
+    [*]Added the Grimace Shake (what is wrong with me)
+[/list]
+Version 1.2
+[list]
+    [*]Officially ported to 1.4.4
+[/list]
+Version 1.3
+[list]
+    [*]A new NPC addition (Though not very creative)
+    [*]And a new post-moonlord weapon
+    [*]Better wording and text
+[/list]

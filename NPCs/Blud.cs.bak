@@ -1,0 +1,307 @@
+﻿using System;
+using System.Collections.Generic;
+using HoodIrony.Items;
+using Microsoft.Xna.Framework;
+using Terraria;
+using Terraria.GameContent.Personalities;
+using Terraria.ID;
+using Terraria.ModLoader;
+
+namespace HoodIrony.NPCs
+{
+    [AutoloadHead]
+    public class Blud : ModNPC
+    {
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Shlawg");
+            NPC.Happiness
+                .SetBiomeAffection<SnowBiome>(AffectionLevel.Love)
+                .SetBiomeAffection<ForestBiome>(AffectionLevel.Like)
+                .SetBiomeAffection<UndergroundBiome>(AffectionLevel.Dislike)
+                .SetBiomeAffection<DesertBiome>(AffectionLevel.Hate)
+                .SetNPCAffection(NPCID.Dryad, AffectionLevel.Love)
+                .SetNPCAffection(NPCID.Mechanic, AffectionLevel.Like)
+                .SetNPCAffection(NPCID.Nurse, AffectionLevel.Dislike)
+                .SetNPCAffection(NPCID.ArmsDealer, AffectionLevel.Hate)
+            ;
+        }
+        public override void SetDefaults()
+        {
+            NPC.townNPC = true;
+            NPC.friendly = true;
+            NPC.width = 20;
+            NPC.height = 20;
+            NPC.aiStyle = 7;
+            NPC.defense = 35;
+            NPC.lifeMax = 43520;
+            NPC.HitSound = SoundID.NPCHit1;
+            NPC.DeathSound = SoundID.NPCDeath1;
+            NPC.knockBackResist = 0.5f;
+            Main.npcFrameCount[NPC.type] = 25;
+            NPCID.Sets.ExtraFramesCount[NPC.type] = 0;
+            NPCID.Sets.AttackFrameCount[NPC.type] = 1;
+            NPCID.Sets.DangerDetectRange[NPC.type] = 500;
+            NPCID.Sets.AttackType[NPC.type] = 14;
+            NPCID.Sets.AttackTime[NPC.type] = 30;
+            NPCID.Sets.AttackAverageChance[NPC.type] = 10;
+            NPCID.Sets.HatOffsetY[NPC.type] = 4;
+            AnimationType = 22;
+        }
+
+        public override bool CanTownNPCSpawn(int numTownNPCs, int money)
+        {
+            for (var i = 0; i < 255; i++)
+            {
+                Player player = Main.player[i];
+                foreach (Item item in player.inventory)
+                {
+                    if (item.type == ItemID.CopperShortsword)
+                    {
+                        return true;
+                    }
+                }
+            }
+            return false;
+        }
+
+        public override List<string> SetNPCNameList()
+        {
+            return new List<string>()
+            {
+                "Blud"
+            };
+        }
+
+        public override void SetChatButtons(ref string button, ref string button2)
+        {
+            button = "Shop";
+        }
+
+        public override void OnChatButtonClicked(bool firstButton, ref bool shop)
+        {
+            if (firstButton)
+            {
+                shop = true;
+            }
+        }
+
+        public override void SetupShop(Chest shop, ref int nextSlot)
+        {
+
+            //Wooden Arrow
+            shop.item[nextSlot].SetDefaults(ModContent.ItemType<Items.SkullEmoji>(), false);
+            shop.item[nextSlot].value = 1000000;
+            nextSlot++;
+
+            shop.item[nextSlot].SetDefaults(ModContent.ItemType<Items.GrimaceShake>(), false);
+            shop.item[nextSlot].value = 10000;
+            nextSlot++;
+
+            shop.item[nextSlot].SetDefaults(ItemID.WallOfFleshGoatMountItem, false);
+            shop.item[nextSlot].value = 1000000;
+            nextSlot++;
+
+            if (NPC.downedSlimeKing)
+            {
+                shop.item[nextSlot].SetDefaults(ItemID.KingSlimeBossBag, false);
+                shop.item[nextSlot].value = 100000;
+                nextSlot++;
+            }
+
+            if (NPC.downedBoss1)
+            {
+                shop.item[nextSlot].SetDefaults(ItemID.EyeOfCthulhuBossBag, false);
+                shop.item[nextSlot].value = 100000;
+                nextSlot++;
+            }
+
+            if (NPC.downedBoss2)
+            {
+                shop.item[nextSlot].SetDefaults(ItemID.EaterOfWorldsBossBag, false);
+                shop.item[nextSlot].value = 200000;
+                nextSlot++;
+            }
+
+            if (NPC.downedBoss2)
+            {
+                shop.item[nextSlot].SetDefaults(ItemID.BrainOfCthulhuBossBag, false);
+                shop.item[nextSlot].value = 200000;
+                nextSlot++;
+            }
+
+            if (NPC.downedBoss3)
+            {
+                shop.item[nextSlot].SetDefaults(ItemID.SkeletronBossBag, false);
+                shop.item[nextSlot].value = 300000;
+                nextSlot++;
+            }
+
+            if (NPC.downedDeerclops)
+            {
+                shop.item[nextSlot].SetDefaults(ItemID.DeerclopsBossBag, false);
+                shop.item[nextSlot].value = 200000;
+                nextSlot++;
+            }
+
+            if (NPC.downedQueenBee)
+            {
+                shop.item[nextSlot].SetDefaults(ItemID.QueenBeeBossBag, false);
+                shop.item[nextSlot].value = 200000;
+                nextSlot++;
+            }
+
+            if (NPC.downedMechBossAny)
+            {
+                shop.item[nextSlot].SetDefaults(ItemID.WallOfFleshBossBag, false);
+                shop.item[nextSlot].value = 300000;
+                nextSlot++;
+            }
+
+            if (NPC.downedQueenSlime)
+            {
+                shop.item[nextSlot].SetDefaults(ItemID.QueenSlimeBossBag, false);
+                shop.item[nextSlot].value = 350000;
+                nextSlot++;
+            }
+
+            if (NPC.downedMechBoss1)
+            {
+                shop.item[nextSlot].SetDefaults(ItemID.DestroyerBossBag, false);
+                shop.item[nextSlot].value = 400000;
+                nextSlot++;
+            }
+
+            if (NPC.downedMechBoss2)
+            {
+                shop.item[nextSlot].SetDefaults(ItemID.TwinsBossBag, false);
+                shop.item[nextSlot].value = 400000;
+                nextSlot++;
+            }
+
+            if (NPC.downedMechBoss3)
+            {
+                shop.item[nextSlot].SetDefaults(ItemID.SkeletronPrimeBossBag, false);
+                shop.item[nextSlot].value = 400000;
+                nextSlot++;
+            }
+
+            if (NPC.downedEmpressOfLight)
+            {
+                shop.item[nextSlot].SetDefaults(ItemID.FairyQueenBossBag, false);
+                shop.item[nextSlot].value = 600000;
+                nextSlot++;
+            }
+
+            if (NPC.downedFishron)
+            {
+                shop.item[nextSlot].SetDefaults(ItemID.FishronBossBag, false);
+                shop.item[nextSlot].value = 600000;
+                nextSlot++;
+            }
+
+            if (NPC.downedPlantBoss)
+            {
+                shop.item[nextSlot].SetDefaults(ItemID.PlanteraBossBag, false);
+                shop.item[nextSlot].value = 700000;
+                nextSlot++;
+            }
+
+            if (NPC.downedGolemBoss)
+            {
+                shop.item[nextSlot].SetDefaults(ItemID.GolemBossBag, false);
+                shop.item[nextSlot].value = 850000;
+                nextSlot++;
+            }
+
+            if (NPC.downedAncientCultist)
+            {
+                shop.item[nextSlot].SetDefaults(ItemID.CultistBossBag, false);
+                shop.item[nextSlot].value = 900000;
+                nextSlot++;
+            }
+
+            if (NPC.downedTowerNebula)
+            {
+                shop.item[nextSlot].SetDefaults(ItemID.FragmentNebula, false);
+                shop.item[nextSlot].value = 30000;
+                nextSlot++;
+            }
+
+            if (NPC.downedTowerStardust)
+            {
+                shop.item[nextSlot].SetDefaults(ItemID.FragmentStardust, false);
+                shop.item[nextSlot].value = 30000;
+                nextSlot++;
+            }
+
+            if (NPC.downedTowerVortex)
+            {
+                shop.item[nextSlot].SetDefaults(ItemID.FragmentVortex, false);
+                shop.item[nextSlot].value = 30000;
+                nextSlot++;
+            }
+
+            if (NPC.downedTowerSolar)
+            {
+                shop.item[nextSlot].SetDefaults(ItemID.FragmentSolar, false);
+                shop.item[nextSlot].value = 30000;
+                nextSlot++;
+            }
+
+            if (NPC.downedMoonlord)
+            {
+                shop.item[nextSlot].SetDefaults(ItemID.MoonLordBossBag, false);
+                shop.item[nextSlot].value = 1000000;
+                nextSlot++;
+            }
+        }
+        public override string GetChat()
+        {
+            NPC.FindFirstNPC(ModContent.NPCType<Blud>());
+            switch (Main.rand.Next(5))
+            {
+                case 0:
+                    return "Where is Blud walking?";
+                case 1:
+                    return "He was running from a cop car!";
+                case 2:
+                    return "Blud walked ... miles";
+                case 3:
+                    return "Blud really said...";
+                case 4:
+                    return "Chat is this real?";
+                default:
+                    return "Huh?";
+            }
+        }
+
+        public override void TownNPCAttackStrength(ref int damage, ref float knockback)
+        {
+            damage = 15;
+            knockback = 2f;
+        }
+
+        public override void TownNPCAttackCooldown(ref int cooldown, ref int randExtraCooldown)
+        {
+            cooldown = 5;
+            randExtraCooldown = 10;
+        }
+
+        public override void TownNPCAttackProj(ref int projType, ref int attackDelay)
+        {
+            projType = ProjectileID.Bone;
+            attackDelay = 1;
+        }
+
+        public override void TownNPCAttackProjSpeed(ref float multiplier, ref float gravityCorrection, ref float randomOffset)
+        {
+            multiplier = 7f;
+        }
+
+        public override void OnKill()
+        {
+            Item.NewItem(NPC.GetSource_Death(), NPC.getRect(), ModContent.ItemType<Items.SkullEmoji>(), 1, false, 0, false, false);
+        }
+    }
+}

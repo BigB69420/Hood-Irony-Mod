@@ -1,0 +1,109 @@
+Mods: {
+	HoodIrony: {
+		ItemName: {
+		}
+
+		TownNPCMood: {
+			Blud: {
+				Content: Blud is feeling great!
+				NoHome: Blud is homeless.
+				LoveSpace: Blud is pleased with his housing!
+				FarFromHome: Blud might be lost.
+				DislikeCrowded: Blud is overwhelmed by the quantity of people around him.
+				HateCrowded: Blud can't do the thug shaker with this many people around!
+				LikeBiome: Blud is very pleased with {BiomeName}.
+				LoveBiome: I love {BiomeName}.
+				DislikeBiome: Blud is terrified in {BiomeName}!
+				HateBiome: Blud despises the blazing heat in {BiomeName}!
+				LikeNPC: Blud is quite fond of {NPCName}.
+				LoveNPC: Blud is in love with {NPCName}!
+				DislikeNPC: Blud is annoyed by {NPCName}.
+				HateNPC: Blud's blood boils at the sight of {NPCName}!
+			}
+		}
+
+		ItemTooltip: {
+			SkullEmoji: Not even know your meme can understand...
+			GrimaceShake: Happy Birthday Grimace!
+		}
+
+		MapObject: {
+		}
+
+		Items: {
+			GrimaceShake: {
+				DisplayName: Grimace Shake
+				Tooltip: Happy Birthday Grimace!
+			}
+
+			SkullEmoji: {
+				DisplayName: Skull Emoji
+				Tooltip:
+					'''
+					Holding this item will attract a legendary being to your town
+					A token of appreciation for our ruler
+					'''
+			}
+
+			Skullyoyo: {
+				DisplayName: Yoyo of Great Doom
+				Tooltip:
+					'''
+					Blessed by the hands of our great father before us...
+					The legend of Barrington will live on...
+					This yoyo is fused by raw strength
+					'''
+			}
+		}
+
+		NPCs: {
+			Blud: {
+				DisplayName: Shlawg
+
+				TownNPCMood: {
+					Content: Blud is feeling great!
+					NoHome: Blud is homeless.
+					FarFromHome: Blud might be lost.
+					LoveSpace: Blud is pleased with his housing!
+					DislikeCrowded: Blud is overwhelmed by the quantity of people around him.
+					HateCrowded: Blud can't do the thug shaker with this many people around!
+					LoveBiome: I love {BiomeName}.
+					LikeBiome: Blud is very pleased with {BiomeName}.
+					DislikeBiome: Blud is terrified in {BiomeName}!
+					HateBiome: Blud despises the blazing heat in {BiomeName}!
+					LoveNPC: Blud is in love with {NPCName}!
+					LikeNPC: Blud is quite fond of {NPCName}.
+					DislikeNPC: Blud is annoyed by {NPCName}.
+					HateNPC: Blud's blood boils at the sight of {NPCName}!
+					LikeNPC_Princess: Blud enjoys company with {NPCName}.
+					Princess_LovesNPC: I think {NPCName} is certainly strange, though he has character.
+				}
+			}
+
+			Antiblud: {
+				DisplayName: Blawg
+
+				TownNPCMood: {
+					Content: What a great day, Nothing could ruin my mood!
+					NoHome: Hey, I'm not sure I have a home.
+					FarFromHome: Umm, it's lonely out here
+					LoveSpace: What pleasant living quarters!
+					DislikeCrowded: The amount of people here is sickening, move me please!
+					HateCrowded: Oh no, I can feel a fever coming, get me away from this crowd!
+					LoveBiome: I think {BiomeName} is a place of serene beauty.
+					LikeBiome: I really do like {BiomeName}.
+					DislikeBiome: I really aren't too fond of {BiomeName}!
+					HateBiome: Get me out of {BiomeName}, I'm gonna die here!
+					LoveNPC: What an amazing person, {NPCName} really makes me happy!
+					LikeNPC: I'm quite fond of {NPCName}.
+					DislikeNPC: God, can {NPCName} be any more annoying.
+					HateNPC: Who do they think they are, {NPCName} is a nasty liar!
+					LikeNPC_Princess: I think {NPCName} is such a wonderful person!
+					Princess_LovesNPC: I think {NPCName} is certainly strange, though he has character.
+				}
+			}
+		}
+
+		Projectiles.Skullyoyoprojectile.DisplayName: Skullyoyoprojectile
+	}
+}
